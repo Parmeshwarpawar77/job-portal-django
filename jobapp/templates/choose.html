@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Choose Role
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid bg-light py-5">
+
+    <div class="container py-5">
+
+        <div class="text-center mb-5">
+
+            <h1 class="display-4 fw-bold text-primary">
+                Welcome To JobHub
+            </h1>
+
+            <p class="fs-5 text-muted">
+                Choose how you want to continue
+            </p>
+
+        </div>
+
+        <div class="row g-5 justify-content-center">
+
+            <!-- Employer Card -->
+            <div class="col-lg-5 col-md-6">
+
+                <div class="card border-0 shadow-lg rounded-4 p-4 text-center h-100">
+
+                    <div class="mb-4">
+                        <i class="fa fa-briefcase fa-4x text-primary"></i>
+                    </div>
+
+                    <h2 class="mb-3">
+                        Employer
+                    </h2>
+
+                    <p class="text-muted mb-4">
+                        Post jobs, manage applicants and hire talented people.
+                    </p>
+
+                    <a href="{% url 'login_employer' %}"
+                       class="btn btn-primary btn-lg rounded-pill">
+                        Continue as Employer
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Job Seeker Card -->
+            <div class="col-lg-5 col-md-6">
+
+                <div class="card border-0 shadow-lg rounded-4 p-4 text-center h-100">
+
+                    <div class="mb-4">
+                        <i class="fa fa-user fa-4x text-success"></i>
+                    </div>
+
+                    <h2 class="mb-3">
+                        Job Seeker
+                    </h2>
+
+                    <p class="text-muted mb-4">
+                        Search jobs, apply easily and grow your career.
+                    </p>
+
+                    <a href="{% url 'login_job_seeker' %}"
+                       class="btn btn-success btn-lg rounded-pill">
+                        Continue as Job Seeker
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

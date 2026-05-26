@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block body %}
+{% if messages %}
+
+{% for message in messages %}
+
+<div class="alert alert-danger d-flex justify-content-between align-items-center" role="alert">
+
+    <span>{{ message }}</span>
+
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    </button>
+
+</div>
+
+{% endfor %}
+
+{% endif %}
+<section>
+    <div class="login-page-width">
+        <div class="login-page-section">
+            <div class="login-container">
+                <div class="content" for="loginTab">
+                    <h2 class="text-center fw-bold text-primary mb-3">
+                        Job Seeker Login
+                    </h2>
+
+                    <p class="text-center text-muted">
+                        Find your dream job and start your career journey today.
+                    </p>
+                    <form method="POST" action="{% url 'login_job_seeker' %}">
+                        {%csrf_token%}
+                        <div class="form-group">
+                            <label for="loginUsername" class="text-muted">Username:</label>
+                            <input type="text" name="username" id="loginUsername" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword" class="text-muted">Password:</label>
+                            <input type="password" name="password" id="loginPassword" class="form-control" required>
+                        </div>
+                        <button type="submit">Login</button>
+                        <p class="text-center mt-3">
+                            Don't have an account?
+                            <a href="{% url 'job_seeker_signup' %}" class="text-primary fw-bold text-decoration-none">
+                                Create Account
+                            </a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

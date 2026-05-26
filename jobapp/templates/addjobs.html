@@ -1,0 +1,103 @@
+{% extends 'base1.html' %}
+{% load static %}
+
+{% block title %}
+Add Jobs
+{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endfor %}
+{% endif %}
+
+<section>
+    <div class="login-page-width">
+
+        <div class="login-container">
+
+            <div class="content">
+
+                <h2>ADD Jobs</h2>
+
+                <form method="POST" action="{% url 'addjobs' %}">
+
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label>Company Name:</label>
+                        {{ form.company_name }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Company Details:</label>
+                        {{ form.company_details }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Job Post:</label>
+                        {{ form.job_post }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Job Category:</label>
+                        {{ form.job_category }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Job Location:</label>
+                        {{ form.job_location }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Job Nature:</label>
+                        {{ form.job_nature }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Salary:</label>
+                        {{ form.job_salary }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Application Deadline:</label>
+                        {{ form.job_dateline }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Job Description:</label>
+                        {{ form.job_desc }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Responsibilities:</label>
+                        {{ form.job_responsibility }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Qualifications:</label>
+                        {{ form.job_qualification }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Vacancy:</label>
+                        {{ form.job_vacancy }}
+                    </div>
+                    
+                    <button type="submit">Add Job</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

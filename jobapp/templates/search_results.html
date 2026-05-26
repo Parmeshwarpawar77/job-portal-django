@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{%load humanize%}
+{% load static %}
+{% block title %}
+    Search Results
+{% endblock %}
+{% block body %}
+    <!-- Search Results Start -->
+    <div class="container-xxl bg-white p-0">
+        <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Search Results</h1>
+        <!-- Render search results -->
+        <div class="container">
+            {% if jobs %}
+                {% for job in jobs %}
+                <div class="job-item p-4 mb-4">
+                    <div class="row g-4">
+                        <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                            <div class="text-start ps-4">
+                                <h5 class="mb-3">{{job.job_post}}</h5>
+                                <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{job.job_location}}</span>
+                                <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{job.job_nature}}</span>
+                                <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>{{job.job_salary}} lakh Rupees (Annual)</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                            <div class="d-flex mb-3">
+                                <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                <a class="btn btn-primary" href="/jobdetails/{{job.pk}}">Apply Now</a>
+                            </div>
+                            <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{job.job_dateline}}</small>
+                        </div>
+                        <div>
+                           <center> <small class="card-footer"><b>POSTED: {{job.job_published|naturaltime}}</b></small></center>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-center">No results found.</p>
+            {% endif %}
+        </div>
+        <!-- Search Results End -->
+    </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<div class="login-page-width">
+    <div class="login-container">
+        <div class="content">
+            <h2 class="text-center fw-bold text-primary mb-3">Employer Sign Up</h2>
+            <form method="POST" action="{% url 'employer_signup' %}">
+                {% if form.errors %}
+                <div class="alert alert-danger shadow rounded-3 p-3 mt-3">
+
+                    <h5 class="mb-3">Please Fix These Errors:</h5>
+
+                    <ul class="mb-0">
+
+                        {% for field in form %}
+
+                        {% for error in field.errors %}
+                        <li>
+                            <strong>{{ field.label }}:</strong> {{ error }}
+                        </li>
+                        {% endfor %}
+
+                        {% endfor %}
+
+                        {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+
+                    </ul>
+
+                </div>
+                {% endif %}
+                {%csrf_token%}
+                <div class="form-group">
+                    <label for="signupFirstname">First name:</label>
+                    <input type="text" name="first_name" id="signupFirstname" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupLastname">Last name:</label>
+                    <input type="text" name="last_name" id="signupLastname" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupUsername">Username:</label>
+                    <input type="text" name="username" id="signupUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email:</label>
+                    <input type="email" name="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword1">Password:</label>
+                    <input type="password" name="password1" id="signupPassword1" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword2">Confirm Password:</label>
+                    <input type="password" name="password2" id="signupPassword2" required>
+                </div>
+                <button type="submit">Sign Up</button>
+                <p class="text-center mt-3">Already have an accounct? <a href="{%url 'login_employer'%}"
+                        class="text-primary fw-bold text-decoration-none">Login</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

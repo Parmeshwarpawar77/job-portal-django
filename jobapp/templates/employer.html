@@ -1,0 +1,21 @@
+{% extends 'base1.html'%}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block body %}
+    <!-- Carousel Start -->
+    <div class="container mt-4">
+        <h2 class="mb-4">Employer Dashboard</h2>
+    
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Welcome, {{user.first_name}} {{user.last_name}}</h5>
+                <p class="card-text">Now, You can add Jobs Here </p>
+                <a href="{% url 'joblisting' %}" class="btn btn-primary">View Job Posts</a>
+            </div>
+        </div>
+    
+        <!-- Add more cards or content as needed -->
+    
+    </div>
+{% endblock%}

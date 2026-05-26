@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<section>
+    <div class="login-page-width">
+        <div class="login-container">
+            <div class="content" for="loginTab" >
+                <h2>Edit Jobs</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in form%}
+                    <div class="form-group">
+                        {{field.label}}
+                        {{field}}
+                    </div>
+                    {% endfor %}
+                    <a href="/jobdetails/{{x.pk}}"><button type="submit">Save Changes</button></a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

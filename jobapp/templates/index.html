@@ -1,0 +1,201 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<div class="container-xxl bg-white p-0">
+    <div class="container-fluid p-0">
+        <div class="owl-carousel header-carousel position-relative">
+            <div class="owl-carousel-item position-relative">
+                <img class="img-fluid" src="{% static 'img/carousel-1.jpg' %}" alt="">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                    style="background: rgba(43, 57, 64, .5);">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-10 col-lg-8">
+                                <h1 class="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You
+                                    Deserved</h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor
+                                    at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea
+                                    elitr.</p>
+                                <a href="{%url 'joblist'%}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A
+                                    Job</a>
+                                <a href="{% url 'login_employer' %}" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A
+                                    Talent</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Jobs By Category</h1>
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp cat-item rounded" data-wow-delay="0.1s">
+                    
+                        <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
+                        <h6 class="mb-3">Marketing</h6>
+
+                    
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp cat-item rounded" data-wow-delay="0.3s">
+                    
+                        <i class="fa fa-3x fa-headset text-primary mb-4"></i>
+                        <h6 class="mb-3">Customer Service</h6>
+
+                    
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp cat-item rounded" data-wow-delay="0.5s">
+                    
+                        <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                        <h6 class="mb-3">Human Resource</h6>
+
+                    
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp cat-item rounded" data-wow-delay="0.7s">
+                    
+                        <i class="fa fa-3x fa-laptop-code text-primary mb-4"></i>
+                        <h6 class="mb-3">Information Technology</h6>
+
+                    
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp cat-item rounded" data-wow-delay="0.1s">
+                    
+                        <i class="fa fa-3x fa-chart-line text-primary mb-4"></i>
+                        <h6 class="mb-3">Business Development</h6>
+
+                    
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp cat-item rounded" data-wow-delay="0.3s">
+                    
+                        <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
+                        <h6 class="mb-3">Sales & Communication</h6>
+
+                    
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp cat-item rounded" data-wow-delay="0.5s">
+                    
+                        <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
+                        <h6 class="mb-3">Teaching & Education</h6>
+
+                    
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp cat-item rounded" data-wow-delay="0.7s">
+                    
+                        <i class="fa fa-3x fa-drafting-compass text-primary mb-4"></i>
+                        <h6 class="mb-3">Design & Creative</h6>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Category End -->
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="row g-0 about-bg rounded overflow-hidden">
+                        <div class="col-6 text-start">
+                            <img class="img-fluid w-100" src="{% static 'img/about-1.jpg' %}">
+                        </div>
+                        <div class="col-6 text-start">
+                            <img class="img-fluid" src="{% static 'img/about-2.jpg' %}"
+                                style="width: 85%; margin-top: 15%;">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid" src="{% static 'img/about-3.jpg' %}" style="width: 85%;">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid w-100" src="{% static 'img/about-4.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
+                    <p class="mb-4">Welcome to Jobhub, where career dreams come to life. Our mission is to revolutionize
+                        the job search experience, connecting talented individuals with their ideal opportunities while
+                        helping companies discover the perfect match for their teams.</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Advanced search features for personalized job
+                        matching.</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Real-time notifications for relevant opportunities.
+                    </p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Simplified application process.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <h1 class="text-center mb-5">Our Users Say!!!</h1>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="testimonial-item bg-light rounded p-4">
+                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                    <p>I found a diverse range of job listings on Jobhub, catering to various skill sets and
+                        preferences. This diversity allowed me to explore different opportunities within my field.</p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-1.jpg' %}"
+                            style="width: 50px; height: 50px;">
+                        <div class="ps-3">
+                            <h5 class="mb-1">Neha Singh</h5>
+                            <small>Data Analyst</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item bg-light rounded p-4">
+                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                    <p> The job matching algorithm on Jobhub seems to align well with the skills and experiences of the
+                        applicants. It certainly played a crucial role in presenting relevant job opportunities tailored
+                        to my profile.</p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-2.jpg' %}"
+                            style="width: 50px; height: 50px;">
+                        <div class="ps-3">
+                            <h5 class="mb-1">Nitin Kamat</h5>
+                            <small>Web Developer</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item bg-light rounded p-4">
+                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                    <p>I am truly thankful for the job opportunity I've secured through Jobhub. It has not only expanded
+                        my professional horizons but has also connected me with a company that aligns with my career
+                        goals.</p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-3.jpg' %}"
+                            style="width: 50px; height: 50px;">
+                        <div class="ps-3">
+                            <h5 class="mb-1">Anurag Bolke</h5>
+                            <small>Data Sciencetist</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item bg-light rounded p-4">
+                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                    <p>I found a diverse range of job listings on Jobhub, catering to various skill sets and
+                        preferences. This diversity allowed me to explore different opportunities within my field.</p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-4.jpg' %}"
+                            style="width: 50px; height: 50px;">
+                        <div class="ps-3">
+                            <h5 class="mb-1">Mona Gupta</h5>
+                            <small>App Developer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+</div>
+{% endblock%}

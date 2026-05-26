@@ -1,0 +1,104 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<!-- Job Detail Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row gy-5 gx-4">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center mb-5">
+                    <div class="text-start ps-4">
+                        <h3 class="mb-3">{{jobs.job_post}}</h3>
+                        <span class="text-truncate me-3"><i
+                                class="fa fa-map-marker-alt text-primary me-2"></i>{{jobs.job_location}}</span>
+                        <span class="text-truncate me-3"><i
+                                class="far fa-clock text-primary me-2"></i>{{jobs.job_nature}}</span>
+                        <span class="text-truncate me-0"><i
+                                class="far fa-money-bill-alt text-primary me-2"></i>{{jobs.job_salary}}lakh
+                            (Annual)</span>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <h4 class="mb-3">Job description</h4>
+                    <p>{{jobs.job_desc}}</p>
+                    <h4 class="mb-3">Responsibility</h4>
+                    <p>{{jobs.job_responsibility}}</p>
+                    <h4 class="mb-3">Qualifications</h4>
+                    <p>{{jobs.job_qualification}}</p>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="">
+                    {%if has_applied%}
+                    <h3><mark style="background-color:green; color : black">You have already applied for this
+                            job.</mark></h3>
+                    {% else %}
+                    <h4 class="mb-4">Apply For The Job</h4>
+                    <form method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <input type="text" name="name" class="form-control" value="{{ request.user.first_name }} {{ request.user.last_name }}" readonly>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="email" name="email" class="form-control" value="{{ request.user.email }}"
+                                    readonly>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label for="Portfolio" class="form-control bg-white">Portfolio Website:</label>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="url" name="website" class="form-control bg-white">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label for="CV" class="form-control bg-white">CV:</label>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="file" name="cv" class="form-control bg-white">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" name="cover_letter" rows="3"
+                                    placeholder="Cover letter"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+                            </div>
+                        </div>
+                    </form>
+                    {%endif%}
+                </div>
+                {%else%}
+                <h2><mark style="background-color:red; color : black">To Apply For Job kindly Login!!</mark> </h2>
+                {%endif%}
+            </div>
+
+            <div class="col-lg-4">
+                <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
+                    <h4 class="mb-4">Job Summery</h4>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: {{jobs.job_published}}</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: {{jobs.job_vacancy}} Position</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature:{{jobs.job_nature}}</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: {{jobs.job_salary}} Lakh (Annual)</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Location: {{jobs.job_location}}</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Status:
+                        {%if jobs.status == 'Active'%}
+                        <mark style="background-color:green; color : black"> {{jobs.status}}</mark>
+                        {%else%}
+                        <mark style="background-color:red; color : black"> {{jobs.status}}</mark>
+                    </p>
+                    {%endif%}
+                    <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line: {{jobs.job_dateline}}
+                    </p>
+                </div>
+                <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
+                    <h4 class="mb-4">{{jobs.company_name}}</h4>
+                    <p class="m-0">{{jobs.company_details}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Job Detail End -->
+{% endblock %}
